@@ -9,13 +9,44 @@ function Spacecraft ()
 {
   const [spacecraft, setSpacecraft] = useState();
   const {id} = useParams();
+  console.log(id, 'paramsId')
   const {enableLoading, disableLoading} = useContext(LoadingContext);
+  console.log(spacecraft, 'spaceCraft-params')
+
+  // async function getWithSpacecrafts(){
+  //   const {data: spacecrafts, isError: isErrorSpacecrafts} = await SpaceTravelApi.getSpacecrafts();
+  //   if(!isErrorSpacecrafts){
+  //     const filterWithSpacecraft = spacecrafts.find((space)=> space.id === id )
+  //       setSpacecraft(filterWithSpacecraft)
+  //   }
+  // }
+
+
+
+
 
   useEffect(() =>
             {
               // todo get spacecraft from the API using the ID from the route (very similar to what we did in Planets.js)
+              async function getWithSpacecrafts(){
+                    const {data: spacecrafts, isError: isErrorSpacecrafts} = await SpaceTravelApi.getSpacecrafts();
+                    if(!isErrorSpacecrafts){
+                      let withFindSpaceCraft = spacecrafts.find(spacecraft => spacecraft.id === id)  
+                      setSpacecraft(withFindSpaceCraft)
+                    }
+
+              }
+              async function runGetPlanetsWithSpacecrafts ()
+              {
+                enableLoading();
+                await getWithSpacecrafts();
+                disableLoading();
+              }
+
+              runGetPlanetsWithSpacecrafts()
+
             },
-            [enableLoading, disableLoading]
+            [id, enableLoading, disableLoading]
   );
 
   return (

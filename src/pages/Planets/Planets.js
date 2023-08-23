@@ -11,23 +11,27 @@ function Planets ()
   const [selectedPlanetId, setSelectedPlanetId] = useState();
   const [selectedSpacecraftId, setSelectedSpacecraftId] = useState();
 
-  console.log(planetsWithSpacecrafts, 'planetsWithSpacecrafts')
-  
+  // console.log(isLoading, 'islOading')
   async function getPlanetsWithSpacecrafts ()
   {
     const {data: planets, isError: isErrorPlanets} = await SpaceTravelApi.getPlanets();
     const {data: spacecrafts, isError: isErrorSpacecrafts} = await SpaceTravelApi.getSpacecrafts();
-    console.log(spacecrafts, 'spacraftsId')
+    console.log(selectedPlanetId, 'p-id')
+    console.log(planets, 'planets');
+    console.log(spacecrafts, 'spacecrafts')
+
     if (!isErrorPlanets && !isErrorSpacecrafts)
     {
       const planetsWithTheirSpacecrafts = planets.map((planet)=>{
+      
         return {
           ...planet,
           spacecrafts: spacecrafts.filter((spacecraft)=> spacecraft.id === planet.id)
         }
       })
+      console.log(planetsWithTheirSpacecrafts, 'planetsWithTheirSpacecrafts')
       // todo fill planets.spacecrafts with spacecrafts
-      setSelectedPlanetId(planets[0]?.id)
+      setSelectedPlanetId(planets[0]?.id);
       setPlanetsWithSpacecrafts(planetsWithTheirSpacecrafts);
     }
   }
