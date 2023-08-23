@@ -14,7 +14,7 @@ function AppRoute ()
       
     // }
     <Routes>
-      <Route exact path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
       <Route path="/spacecrafts" element={<Spacecrafts />} />
       <Route path="/spacecraft/build" element={<SpacecraftBuild />} />
       <Route path="/spacecraft/:id" element={<Spacecraft />} />

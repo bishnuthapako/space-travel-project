@@ -20,6 +20,7 @@ function SpacecraftBuild ()
 
   function handleChangeOfFormInput (event)
   {
+    event.preventDefault()
     // todo update form state
   }
 

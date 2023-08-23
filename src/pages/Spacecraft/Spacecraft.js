@@ -19,7 +19,7 @@ function Spacecraft ()
   );
 
   return (
-    spacecraft
+    spacecraft 
     &&
     <div className={styles["spacecraft"]}>
       <div className={styles["spacecraft__imageContainer"]}>

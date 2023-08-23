@@ -9,10 +9,17 @@ function Spacecrafts ()
 {
   const [spacecrafts, setSpacecrafts] = useState([]);
   const {enableLoading, disableLoading} = useContext(LoadingContext);
-
+  
   async function getSpacecrafts ()
   {
     // todo get spacecrafts using the API
+    const {data: planets, isError: isErrorPlanets} = await SpaceTravelApi.getPlanets();
+    const {data: spacecrafts, isError: isErrorSpacecrafts} = await SpaceTravelApi.getSpacecrafts();
+   
+    if(!isErrorPlanets && !isErrorSpacecrafts){
+      setSpacecrafts(spacecrafts)
+    }
+
   }
 
   useEffect(() =>
@@ -34,6 +41,7 @@ function Spacecrafts ()
   function handleClickOfBuild ()
   {
     // todo navigate to build spacecraft page
+    navigate("/spacecraft/build")
   }
 
   function handleClickOfImageContainer (event, id)

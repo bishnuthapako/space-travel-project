@@ -3,9 +3,12 @@ import styles from "./Home.module.css";
 function Home ()
 {
   return (
-    {
-      // todo
-    }
+    // {
+    //   // todo
+    // }
+    <div>
+      hello
+    </div>
   );
 }
 

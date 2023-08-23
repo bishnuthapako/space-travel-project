@@ -20,7 +20,7 @@ function App ()
         <BrowserRouter>
         <div className={styles["app"]}>
           <header className={styles["app__header"]}>
-            todo
+            <NavigationBar />
           </header>
 
           <main className={styles["app__main"]}>
@@ -28,7 +28,7 @@ function App ()
           </main>
 
           <footer className={styles["app__footer"]}>
-            todo
+            <Motto />
           </footer>
         </div>
         </BrowserRouter>
