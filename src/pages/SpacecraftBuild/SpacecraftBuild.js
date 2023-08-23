@@ -18,20 +18,47 @@ function SpacecraftBuild ()
   const navigate = useNavigate();
   const {enableLoading, disableLoading} = useContext(LoadingContext);
 
+  
+
   function handleChangeOfFormInput (event)
   {
-    event.preventDefault()
+   
     // todo update form state
+    const {name, value} = event.target;
+    setSpacecraft(prev => ({...prev, [name]: value}))
+    
   }
 
+
   async function handleSubmitOfForm (event)
+  // todo submit the form using the API
   {
-    // todo submit the form using the API
+    event.preventDefault();
+    let {name, capacity, description, pictureUrl} = spacecraft;
+
+    let formError = false;
+    setErrors([])
+
+    if(name.length === 0){
+      formError = true;
+      setErrors(prev=> ([...prev, "Name is required!"]))
+    }
+
+    capacity = Number(capacity)
+    if(!capacity || !Number.isInteger(capacity)){
+      formError = true;
+      setErrors(prev=>([...prev, "The required capacity is specified in Numbers"]))
+    }
+    if(!description.length === 0){
+      formError = true;
+      setErrors(prev => ([...prev, "Description is required"]))
+    }
   }
 
   function handleClickOfBack (event)
   {
     // todo navigate back
+    navigate(-1)
   }
 
   return (

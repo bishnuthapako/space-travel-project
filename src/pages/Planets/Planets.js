@@ -11,14 +11,12 @@ function Planets ()
   const [selectedPlanetId, setSelectedPlanetId] = useState();
   const [selectedSpacecraftId, setSelectedSpacecraftId] = useState();
 
-  // console.log(isLoading, 'islOading')
+
   async function getPlanetsWithSpacecrafts ()
   {
     const {data: planets, isError: isErrorPlanets} = await SpaceTravelApi.getPlanets();
     const {data: spacecrafts, isError: isErrorSpacecrafts} = await SpaceTravelApi.getSpacecrafts();
-    console.log(selectedPlanetId, 'p-id')
-    console.log(planets, 'planets');
-    console.log(spacecrafts, 'spacecrafts')
+  
 
     if (!isErrorPlanets && !isErrorSpacecrafts)
     {

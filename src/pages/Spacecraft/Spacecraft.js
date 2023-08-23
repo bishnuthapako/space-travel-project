@@ -13,17 +13,6 @@ function Spacecraft ()
   const {enableLoading, disableLoading} = useContext(LoadingContext);
   console.log(spacecraft, 'spaceCraft-params')
 
-  // async function getWithSpacecrafts(){
-  //   const {data: spacecrafts, isError: isErrorSpacecrafts} = await SpaceTravelApi.getSpacecrafts();
-  //   if(!isErrorSpacecrafts){
-  //     const filterWithSpacecraft = spacecrafts.find((space)=> space.id === id )
-  //       setSpacecraft(filterWithSpacecraft)
-  //   }
-  // }
-
-
-
-
 
   useEffect(() =>
             {
