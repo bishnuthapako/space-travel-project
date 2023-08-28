@@ -1,0 +1,18 @@
+.home{
+    width: 100%;
+    height: auto;
+}
+.heading{
+    padding-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.paragraph{
+    margin: 2px;
+    padding: 2px;
+    border: 2px dotted #fff;
+    width: 100%;
+    height: auto;
+    /* margin-top: 20px; */
+    margin-bottom: 40px;
+}
