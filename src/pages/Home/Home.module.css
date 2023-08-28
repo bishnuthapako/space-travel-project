@@ -6,6 +6,7 @@
     padding-right: 10px;
     margin-bottom: 10px;
     margin-top: 10px;
+    font-size: 16px;
 }
 .paragraph{
     margin: 2px;
@@ -15,4 +16,5 @@
     height: auto;
     /* margin-top: 20px; */
     margin-bottom: 40px;
+    font-size: 14px;
 }
