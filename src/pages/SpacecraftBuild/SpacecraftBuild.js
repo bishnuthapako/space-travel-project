@@ -34,25 +34,37 @@ function SpacecraftBuild ()
   // todo submit the form using the API
   {
     event.preventDefault();
+    
     let {name, capacity, description, pictureUrl} = spacecraft;
 
-    let formError = false;
+    let isFormError = false;
     setErrors([])
 
     if(name.length === 0){
-      formError = true;
-      setErrors(prev=> ([...prev, "Name is required!"]))
+      isFormError = true
+      setErrors(prev => [...prev, "You can not leave the name blank"])
     }
 
     capacity = Number(capacity)
     if(!capacity || !Number.isInteger(capacity)){
-      formError = true;
+      isFormError = true;
       setErrors(prev=>([...prev, "The required capacity is specified in Numbers"]))
     }
-    if(!description.length === 0){
-      formError = true;
+    if(description.length === 0){
+      isFormError = true;
       setErrors(prev => ([...prev, "Description is required"]))
     }
+
+    if(!isFormError){
+      enableLoading()
+      const { isError } = await SpaceTravelApi.buildSpacecraft({name, capacity, description, pictureUrl});
+        if(!isError){
+          setSpacecraft(INITIAL_SPACECRAFT)
+        }
+        disableLoading()
+    }
+
+  
   }
 
   function handleClickOfBack (event)

@@ -36,6 +36,7 @@ function App ()
 
       {
         // todo render Loading based on its condition
+        isLoading && <Loading />
       }
     </>
   );

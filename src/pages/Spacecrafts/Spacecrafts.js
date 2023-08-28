@@ -52,6 +52,7 @@ function Spacecrafts ()
   async function handleClickOfDestroy (event, id)
   {
     enableLoading();
+   
     const {isError} = await SpaceTravelApi.destroySpacecraftById({id});
     if (!isError)
     {

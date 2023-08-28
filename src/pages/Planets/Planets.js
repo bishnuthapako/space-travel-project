@@ -11,7 +11,7 @@ function Planets ()
   const [selectedPlanetId, setSelectedPlanetId] = useState();
   const [selectedSpacecraftId, setSelectedSpacecraftId] = useState();
 
-
+  console.log(selectedSpacecraftId, "selectedSpacecraftId")
   async function getPlanetsWithSpacecrafts ()
   {
     const {data: planets, isError: isErrorPlanets} = await SpaceTravelApi.getPlanets();
@@ -24,13 +24,13 @@ function Planets ()
       
         return {
           ...planet,
-          spacecrafts: spacecrafts.filter((spacecraft)=> spacecraft.id === planet.id)
+          spacecrafts: spacecrafts.filter((spacecraft)=> spacecraft.currentLocation === planet.id)
         }
       })
       console.log(planetsWithTheirSpacecrafts, 'planetsWithTheirSpacecrafts')
       // todo fill planets.spacecrafts with spacecrafts
-      setSelectedPlanetId(planets[0]?.id);
       setPlanetsWithSpacecrafts(planetsWithTheirSpacecrafts);
+
     }
   }
 
@@ -52,6 +52,9 @@ function Planets ()
   function handleClickOfPlanet (event, id)
   {
     // todo set the selected planet
+    if(!isLoading){
+      setSelectedPlanetId(id)
+    }
   }
 
   async function handleClickOfSpacecraft (event, spacecraftId, planetId)
@@ -59,6 +62,17 @@ function Planets ()
     // todo set the selected spacecraft
     // todo send spacecraft to planet using the API
     // todo call getPlanetsWithSpacecrafts to refresh the page content
+    if(!isLoading && Number.isInteger(selectedPlanetId) && selectedPlanetId !== planetId){
+      setSelectedSpacecraftId(spacecraftId);
+      enableLoading()
+      const { isError } = await SpaceTravelApi.sendSpacecraftToPlanet({spacecraftId, targetPlanetId: selectedPlanetId});
+      if(!isError){
+        getPlanetsWithSpacecrafts();
+        setSelectedPlanetId(null)
+        setSelectedSpacecraftId(null)
+      }
+      disableLoading()
+    }
   }
 
   return (
