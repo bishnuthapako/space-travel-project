@@ -5,7 +5,6 @@ const INITIAL_LOADING = {
   enableLoading: function () {},
   disableLoading: function () {}
 };
-
 export const LoadingContext = createContext(INITIAL_LOADING);
 
 function LoadingProvider ({children})
@@ -14,6 +13,7 @@ function LoadingProvider ({children})
 
   const enableLoading = useCallback(() =>
                                     {
+                                      
                                       setIsLoading(true);
                                     },
                                     []
@@ -21,6 +21,7 @@ function LoadingProvider ({children})
 
   const disableLoading = useCallback(() =>
                                      {
+                                        
                                        setIsLoading(false);
                                      },
                                      []

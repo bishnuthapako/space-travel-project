@@ -6,9 +6,10 @@ function Home (props)
     // {
     //   // todo
     // }
-    <div className="container" style={{width: "100%", height: "100vh"}}>
+    <div className="container">
       <div className="text-center">
         <h2>Space Travel: Expanding horizen behind earth</h2>
+      
       </div>
       {
         props.posts.map((post)=>{

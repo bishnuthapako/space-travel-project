@@ -18,6 +18,7 @@ function App ()
         
         // todo wrap with BrowserRouter and render the necessary components
         <BrowserRouter>
+  
         <div className={styles["app"]}>
           <header className={styles["app__header"]}>
             <NavigationBar />
@@ -31,6 +32,7 @@ function App ()
             <Motto />
           </footer>
         </div>
+      
         </BrowserRouter>
       }
 
@@ -43,3 +45,5 @@ function App ()
 }
 
 export default App;
+
+
