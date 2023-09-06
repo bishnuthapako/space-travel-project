@@ -6,7 +6,7 @@ function Loading ()
 {
   const [dots, setDots] = useState([]);
 
-  console.log(dots, 'dots')
+
   useEffect(() =>
             {
               setTimeout(() =>
