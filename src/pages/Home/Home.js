@@ -2,19 +2,18 @@ import styles from "./Home.module.css";
 
 function Home (props)
 {
+  
   return (
-    // {
-    //   // todo
-    // }
+    
     <div className="container">
       <div className="text-center">
         <h2>Space Travel: Expanding horizen behind earth</h2>
       
       </div>
       {
-        props.posts.map((post)=>{
+        props.posts.map((post, id)=>{
           return <>
-          <div className={styles["home"]} key={post.id}>
+          <div className={styles["home"]} key={id}>
           <h2 className={styles["heading"]}>{post.title}</h2>
           <p className={styles["paragraph"]}>{post.description}</p>
           </div>
