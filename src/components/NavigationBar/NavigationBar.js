@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-// import style from "./NavigationBar.module.css";
+
+
 
 
 function NavigationBar() {
@@ -16,7 +17,7 @@ function NavigationBar() {
         routes.map((route, id) => {
           return (
             <li className={`nav-item`} key={id}>
-              <NavLink to={route.to} className={`nav-link}`} style={{color: "#ffff", fontWeight: "bold", textDecoration: "none"}}>{route.title}</NavLink>
+              <NavLink to={route.to} className={`nav-link`} style={{color: "white", textDecoration: "none", border: "2px solid #fff"}}>{route.title}</NavLink>
             </li>
           )
         })

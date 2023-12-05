@@ -1,12 +1,5 @@
 
-.nav-hover:hover {
-    color: #f2f4f8;
-}
-
-.active{
-    color: #ffff;
-    border: 1px solid #fff;
-}
-.nav-link:visited{
-    color: #ffff;
+.nav-link__active{
+    color: #fff;
+    border: 1px solid #ffff;
 }
